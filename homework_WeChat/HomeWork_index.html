@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/swiper-3.3.1.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/animate.css"/>
+		<link rel="stylesheet" type="text/css" href="css/HomeWork_index.css"/>
+		<script src="js/swiper-3.3.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/swiper.animate1.0.2.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div class="swiper-container">
+			<div class="swiper-wrapper">
+				<div class="swiper-slide one">
+					<img class="cloud scaleInOut delay13 ani" id="oneCloud" src="img/indexCloud.png"/>
+					<img class="ele scaleInOut ani" id="oneEle" src="img/indexElements.png"/>
+					<img class="star scaleInOut ani" id="oneStar" src="img/indexStars.png" />
+					<div class="oneCon">
+						<div class="oneTop">
+							<img class="flowerLeft ani"  swiper-animate-effect="zoomIn" swiper-animate-duration="0.5s" swiper-animate-delay="0.8s" src="img/indexFlowers01.png"/>
+							<img class="text ani" src="img/indexTxt.png" swiper-animate-effect="fadeIn" swiper-animate-duration="0.5s" swiper-animate-delay="0.3s"/>
+							<img class="flowerRight ani" swiper-animate-effect="zoomIn" swiper-animate-duration="0.5s" swiper-animate-delay="0.8s" src="img/indexFlowers02.png"/>
+						</div>
+						<div class="oneMid">
+							<img class="plane scaleDown" id="onePlane" src="img/indexFlight.png"/>	
+						</div>
+					</div>
+				</div>
+				
+				<div class="swiper-slide two">
+					<img class="ani twoimg1"  swiper-animate-effect="fadeIn" swiper-animate-duration="0.5s" swiper-animate-delay="0.5s" src="img/wasIT.png" />
+					
+					<img class=" ani  twoimg2" src="img/wasFarm.png" swiper-animate-effect="fadeIn" swiper-animate-duration="1.5s" swiper-animate-delay="1s" />				
+				</div>
+				
+				<div class="swiper-slide three">
+					<img class="threebg ani"  src="img/earlyBuilding.png"  swiper-animate-effect="fadeIn" swiper-animate-duration="0.5s" swiper-animate-delay="0.5s" />
+				</div>
+				<div class="swiper-slide four"></div>
+				<div class="swiper-slide five"></div>
+				<div class="swiper-slide six"></div>
+				<div class="swiper-slide seven"></div>
+				<div class="swiper-slide eight"></div>
+				<div class="swiper-slide nine"></div>
+				
+			</div>
+			<img class="music" src="img/musicBtn.png">
+			<img class="arrow fadeUp" src="img/arrow-up.png">
+		</div>
+		<script type="text/javascript">
+		
+			
+			
+			var mySwiper = new Swiper(".swiper-container",{
+				direction : 'vertical',
+				onInit:function(mySwiper){
+					swiperAnimateCache(mySwiper);
+					swiperAnimate(mySwiper);
+				},
+				onSlideChangeEnd:function(mySwiper){
+					swiperAnimate(mySwiper);
+				}				
+			});
+			
+			var oSwiper=new Swiper(".swiper-wrapper",{
+				
+			});
+			
+			var oneCloud = document.getElementById("oneCloud");
+			var oneEle = document.getElementById("oneEle");
+			var oneStar = document.getElementById("oneStar");
+			var onePlane = document.getElementById("onePlane");
+//			 swiper-animate-effect="fadeInUp" swiper-animate-duration="0.5s" swiper-animate-delay="0.3s"
+			function setAni(obj,type,duration,delay,cName){
+				obj.addEventListener("webkitAnimationEnd",function(){	
+					this.setAttribute("swiper-animate-effect",type);
+					this.setAttribute("swiper-animate-duration",duration);
+					this.setAttribute("swiper-animate-delay",delay);
+					this.className = cName;
+					swiperAnimate(mySwiper);
+				},false);
+			}
+			setAni(oneCloud,"pulse","2s","0s","cloud ani infinite");
+			setAni(oneEle,"pulse","2s","0.2s","ele ani infinite");
+			setAni(oneStar,"pulse","2s","0.4s","star ani infinite");
+			setAni(onePlane,"pulse","2s","0s","plane ani infinite");
+		</script>
+	</body>
+</html>
